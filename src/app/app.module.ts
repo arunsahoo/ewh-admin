@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { UserLoginService } from './user-login.service';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,11 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
-        component: AppComponent
+        component: LoginComponent
       },
       {
         path: 'login',
@@ -25,7 +28,7 @@ import { LoginComponent } from './login/login.component';
       }
     ])
   ],
-  providers: [],
+  providers: [UserLoginService],
   bootstrap: [AppComponent]
 })
 
