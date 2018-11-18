@@ -4,16 +4,15 @@ import { UserLoginService } from '../user-login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss', '../app.component.scss']
 })
 export class LoginComponent implements OnInit {
-  users = {};
 
   constructor(private loginService: UserLoginService) { }
 
   ngOnInit() {
-    this.users = this.loginService.getData();
-    console.log(this.users);
+    const users = this.loginService.getData();
+    // console.log(users);
   }
 
   loginUser(event) {
@@ -23,6 +22,6 @@ export class LoginComponent implements OnInit {
     const password = target.querySelector('#password').value;
     // console.log(this.users);
     // this.loginService.getUserLogin(email, password, this.users);
-    // console.log(email, password);
+    console.log(email, password);
   }
 }
