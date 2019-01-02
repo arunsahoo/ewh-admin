@@ -4,10 +4,10 @@
       <div class="panel panel-default">
         <div class="panel-body text-center">
           <img src="../assets/images/logo.png" alt="logo" class="splashLogo"> 
-          <form class="form-horizontal" (submit)='loginUser()'>
+          <form class="form-horizontal" (submit)='loginUser($event)'>
             <div class="form-group">
               <div class="col-md-12">
-                <input id="email" type="email" class="form-control" name="email" value="" placeholder="E-Mail/Username" required autofocus>
+                <input id="email" type="email" class="form-control" name="email" value="" placeholder="E-Mail ID/Username" required autofocus>
               </div>
             </div>
 
@@ -26,7 +26,7 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-                <a class="btn btn-link" href="">
+                <a class="btn btn-link" href="reset-password">
                   Forgot Your Password?
                 </a>
               </div>
@@ -35,7 +35,7 @@
             <div class="form-group">
               <div class="col-md-12 text-right">
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">
-                  Login
+                  <b>Login</b>
                 </button>
               </div>
             </div>
