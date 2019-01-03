@@ -1,3 +1,20 @@
-<p>
-  dashboard works!
-</p>
+<div id="dashboard" class="container">
+  <div id="leftNav">
+    <span id="uploadPhoto" ng-click="angular.element('#profilePicUpload').trigger('click');">
+      <span class="text">Upload Photo</span> 
+      <img class="profilePic" src="../assets/images/profile_img.png" enctype="multipart/form-data" method="post">
+    </span>
+    <input id="profilePicUpload" type="file" />
+    <span class="customerName">Customer Name</span>
+    <hr>
+    <ul id="menu">
+      <li class="active"><i class="fa fa-tachometer-alt"></i> Dashboard</li>
+      <li><i class="fa fa-user"></i> Customer</li>
+      <li><i class="fa fa-file-invoice-dollar"></i> Invoices</li>
+      <li><i class="fa fa-server"></i> Services</li>
+      <li><i class="fa fa-users"></i> Users</li>
+      <li><i class="fa fa-cogs"></i> Settings</li>
+    </ul>
+  </div>
+  <div id="container"></div>
+</div>
