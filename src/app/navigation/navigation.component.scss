@@ -1,0 +1,22 @@
+#menu {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    padding: 5px;
+    cursor: pointer;
+    color: #aaa;
+    font-weight: bold;
+}
+
+#menu li i {
+    width: 20%;
+    padding-left: 10%;
+    text-align: center;
+}
+
+#menu li.active {
+    background-color: #222;
+    border-left: 2px solid #0099ff;
+}
