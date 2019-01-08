@@ -9,13 +9,17 @@ import { LoginComponent } from './login/login.component';
 import { UserLoginService } from './user-login.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ResetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavigationComponent,
+    ProfilePictureComponent
   ],
   imports: [
     BrowserModule,
