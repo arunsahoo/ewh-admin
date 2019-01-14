@@ -11,6 +11,11 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
+import { CustomerComponent } from './customer/customer.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { ServicesComponent } from './services/services.component';
+import { UsersComponent } from './users/users.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { ProfilePictureComponent } from './profile-picture/profile-picture.compo
     ResetPasswordComponent,
     DashboardComponent,
     NavigationComponent,
-    ProfilePictureComponent
+    ProfilePictureComponent,
+    CustomerComponent,
+    InvoicesComponent,
+    ServicesComponent,
+    UsersComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +51,26 @@ import { ProfilePictureComponent } from './profile-picture/profile-picture.compo
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'customer',
+        component: CustomerComponent
+      },
+      {
+        path: 'invoices',
+        component: InvoicesComponent
+      },
+      {
+        path: 'services',
+        component: ServicesComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
       }
     ])
   ],

@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     const users = this.loginService.getData();
-    // console.log(users);
+   console.log(users);
   }
 
   loginUser(event) {
