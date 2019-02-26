@@ -12,4 +12,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  getCurrentUrl() {
+    return window.location.pathname;
+  }
 }

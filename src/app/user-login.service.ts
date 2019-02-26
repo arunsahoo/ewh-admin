@@ -9,12 +9,7 @@ export class UserLoginService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    const getUsers = this.http.get('http://localhost:8000/api/users')
-    .subscribe(data => {
-      return data;
-    });
-
-    console.log(getUsers);
+    return this.http.get('http://localhost:8000/api/users');
   }
 
   getUserLogin() {

@@ -1,8 +1,8 @@
 <ul id="menu">
-    <li [routerLinkActive]="['active']"><a [routerLink]="['dashboard']"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-    <li [routerLinkActive]="['active']"><a [routerLink]="['customer']"><i class="fa fa-user"></i> Customer</a></li>
-    <li [routerLinkActive]="['active']"><a [routerLink]="['invoices']"><i class="fa fa-file-invoice-dollar"></i> Invoices</a></li>
-    <li [routerLinkActive]="['active']"><a [routerLink]="['services']"><i class="fa fa-server"></i> Services</a></li>
-    <li [routerLinkActive]="['active']"><a [routerLink]="['users']"><i class="fa fa-users"></i> Users</a></li>
-    <li [routerLinkActive]="['active']"><a [routerLink]="['settings']"><i class="fa fa-cogs"></i> Settings</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/dashboard'}"><a href="/dashboard"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/customer'}"><a href="/customer"><i class="fa fa-user"></i> Customer</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/invoices'}"><a href="/invoices"><i class="fa fa-file-invoice-dollar"></i> Invoices</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/services'}"><a href="/services"><i class="fa fa-server"></i> Services</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/users'}"><a href="/users"><i class="fa fa-users"></i> Users</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/settings'}"><a href="/settings"><i class="fa fa-cogs"></i> Settings</a></li>
 </ul>

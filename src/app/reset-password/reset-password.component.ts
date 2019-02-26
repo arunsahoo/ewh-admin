@@ -12,4 +12,7 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {
   }
 
+  public resetPassword(event) {
+    console.log(event);
+  }
 }
