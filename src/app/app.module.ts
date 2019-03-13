@@ -5,8 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { GlobalService } from './global.service';
 import { UserLoginService } from './user-login.service';
+import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -74,7 +75,7 @@ import { SettingsComponent } from './settings/settings.component';
       }
     ])
   ],
-  providers: [UserLoginService],
+  providers: [UserLoginService, GlobalService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
