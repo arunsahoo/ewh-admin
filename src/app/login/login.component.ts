@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserLoginService } from '../user-login.service';
 
 @Component({
@@ -7,21 +8,29 @@ import { UserLoginService } from '../user-login.service';
   styleUrls: ['./login.component.scss', '../app.component.scss']
 })
 export class LoginComponent implements OnInit {
+  users: any;
+  loginSession: any;
 
-  constructor(private loginService: UserLoginService) { }
+  constructor (
+    private loginService: UserLoginService,
+    private router: Router ) { }
 
   ngOnInit() {
-    const users = this.loginService.getData();
-   console.log(users);
   }
 
   loginUser(event) {
     event.preventDefault();
+
     const target = event.target;
     const email = target.querySelector('#email').value;
     const password = target.querySelector('#password').value;
-    // console.log(this.users);
-    // this.loginService.getUserLogin(email, password, this.users);
-    console.log(email, password);
+
+    this.loginService.getUserLogin(email, password).subscribe((data) => {
+      this.loginSession = data;
+
+      if (this.loginSession.status === 'success') {
+        this.router.navigate(['/dashboard']);
+      }
+    });
   }
 }

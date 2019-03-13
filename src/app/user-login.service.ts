@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GlobalService } from '../app/global.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
+  users: any;
+  status: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private globalService: GlobalService) { }
 
-  getData() {
-    return this.http.get('http://localhost:8000/api/users');
+  getAllUsers() {
+    return this.http.get(this.globalService.apiUrl + 'users');
   }
 
-  getUserLogin() {
-
+  getUserLogin(email, password) {
+    return this.http.get(this.globalService.apiUrl + 'login/?email=' + email + '&password=' + password);
   }
 }
