@@ -15,4 +15,9 @@ export class NavigationComponent implements OnInit {
   getCurrentUrl() {
     return window.location.pathname;
   }
+
+  logoutUser() {
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+  }
 }
