@@ -5,4 +5,5 @@
     <li [ngClass]="{active: getCurrentUrl()==='/services'}"><a href="/services"><i class="fa fa-server"></i> Services</a></li>
     <li [ngClass]="{active: getCurrentUrl()==='/users'}"><a href="/users"><i class="fa fa-users"></i> Users</a></li>
     <li [ngClass]="{active: getCurrentUrl()==='/settings'}"><a href="/settings"><i class="fa fa-cogs"></i> Settings</a></li>
+    <li [ngClass]="{active: getCurrentUrl()==='/settings'}"><a href="#" (click)="logoutUser()"><i class="fa fa-power-off"></i> LogOut</a></li>
 </ul>
