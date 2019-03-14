@@ -8,6 +8,7 @@ import { GlobalService } from '../app/global.service';
 export class UserLoginService {
   users: any;
   status: string;
+  api_key: any;
 
   constructor(private http: HttpClient, private globalService: GlobalService) { }
 
