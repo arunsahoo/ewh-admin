@@ -7,7 +7,7 @@
           <form class="form-horizontal" (submit)='loginUser($event)'>
             <div class="form-group">
               <div class="col-md-12">
-                <input id="email" type="email" class="form-control" name="email" value="" placeholder="Your email id" required autofocus>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Your email id" required autofocus>
               </div>
             </div>
 
@@ -21,7 +21,7 @@
               <div class="col-md-6">
                 <div class="checkbox text-left">
                   <label>
-                    <input type="checkbox" name="remember"> Remember Me
+                    <input type="checkbox" name="remember" id="remember"> Remember Me
                   </label>
                 </div>
               </div>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-              <div class="col-md-12 text-right">
+              <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">
                   <b>Login</b>
                 </button>
