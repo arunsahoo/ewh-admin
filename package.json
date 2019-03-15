@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "aws3": "aws s3 cp ./dist/ewh-admin s3://admin.evokewebhosting.com/ --recursive",
     "test": "ng test --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
