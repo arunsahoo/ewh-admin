@@ -9,7 +9,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -27,22 +27,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['HeadlessChromium'],
+    browsers: ['FirefoxHeadless'],
     customLaunchers: {
-      HeadlessChromium: {
-        base: 'ChromiumHeadless',
-        flags: [
-          '--no-sandbox',
-          '--remote-debugging-port=9222',
-          '--enable-logging',
-          '--user-data-dir=./karma-chrome',
-          '--v=1',
-          '--disable-background-timer-throttling',
-          '--disable-renderer-backgrounding',
-          '--proxy-bypass-list=*',
-          '--proxy-server=\'direct://\''
-       ]
-      }
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: [ '-headless' ],
+      },
     },
     singleRun: false
   });
