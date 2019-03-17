@@ -8,8 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.7.0
-        environment:
-          CHROMIUM_BIN: "/usr/bin/chromium-browser"
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
