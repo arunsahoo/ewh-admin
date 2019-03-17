@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.7.0
+        environment: NO_PROXY="localhost, 0.0.0.0/4201, 0.0.0.0/9876"
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
