@@ -17,9 +17,27 @@ describe('NavigationComponent', () => {
     fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    let store = {};
+    const mockLocalStorage = {
+      removeItem: (key: string) => {
+        delete store[key];
+      },
+      clear: () => {
+        store = {};
+      }
+    };
+
+  spyOn(localStorage, 'removeItem')
+    .and.callFake(mockLocalStorage.removeItem);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  xit('should remove item from localStorage on user logout', () => {
+    component.logoutUser();
+    expect(localStorage.removeItem).toHaveBeenCalled();
   });
 });
