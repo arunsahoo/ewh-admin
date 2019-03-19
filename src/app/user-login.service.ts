@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { GlobalService } from '../app/global.service';
+import Axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
   users: any;
-  status: string;
-  api_key: any;
-
-  constructor(private http: HttpClient, private globalService: GlobalService) { }
+  url: any;
+  status: any;
+  userId: any;
 
   getAllUsers() {
-    return this.http.get(this.globalService.apiUrl + 'users');
+    return Axios.get('users');
   }
 
-  getUserLogin(email, password) {
-    return this.http.get(this.globalService.apiUrl + 'login/?email=' + email + '&password=' + password);
+  getUser() {
+    this.userId =  localStorage.getItem('userId') ? localStorage.getItem('userId') : sessionStorage.getItem('userId');
+    return Axios.get('user/' + this.userId);
   }
 }
