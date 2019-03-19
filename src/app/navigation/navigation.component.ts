@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logoutUser() {
-    localStorage.removeItem('token');
-    sessionStorage.removeItem('token');
+    localStorage.clear();
+    sessionStorage.clear();
   }
 }
