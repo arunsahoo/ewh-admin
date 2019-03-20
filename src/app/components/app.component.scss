@@ -3,9 +3,11 @@ body {
 }
 
 .login-bg {
-	background-image: url('../assets/images/blue_bg.jpg');
+	background-image: url('../../assets/images/blue_bg.jpg');
 	height: 100vh;
 	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .panel-default {

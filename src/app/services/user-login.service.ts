@@ -16,6 +16,6 @@ export class UserLoginService {
 
   getUser() {
     this.userId =  localStorage.getItem('userId') ? localStorage.getItem('userId') : sessionStorage.getItem('userId');
-    return Axios.get('user/' + this.userId);
+    return Axios.get('users/' + this.userId);
   }
 }

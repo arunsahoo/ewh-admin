@@ -3,20 +3,20 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import { RouterModule } from '@angular/router';
-import { GlobalService } from './global.service';
-import { UserLoginService } from './user-login.service';
-import { LoginComponent } from './login/login.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
-import { CustomerComponent } from './customer/customer.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { ServicesComponent } from './services/services.component';
-import { UsersComponent } from './users/users.component';
-import { SettingsComponent } from './settings/settings.component';
+import { GlobalService } from './services/global.service';
+import { UserLoginService } from './services/user-login.service';
+import { LoginComponent } from './components/login/login.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { InvoicesComponent } from './components/invoices/invoices.component';
+import { ServicesComponent } from './components/services/services.component';
+import { UsersComponent } from './components/users/users.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [

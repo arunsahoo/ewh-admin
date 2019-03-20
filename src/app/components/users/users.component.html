@@ -1,0 +1,42 @@
+<div id="dashboard" class="container">
+  <div id="leftNav">
+
+    <app-profile-picture></app-profile-picture>
+    <hr>
+    <app-navigation></app-navigation>
+
+  </div>
+  <div id="container">
+      <div id="headNav">
+        <h4>Users</h4>
+        </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Sl No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col" class="text-center">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <td class="text-center">{{i+1}}</td>
+        <td class="text-capitalize">{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td class="text-center">
+          <div *ngIf="user.utype == 2">
+              <input *ngIf="user.status == 1" type="checkbox" checked />
+              <input *ngIf="user.status == 0" type="checkbox" />
+          </div>
+          <div *ngIf="user.utype != 2">
+            <strong>
+              <span *ngIf="user.status == 1" class="text-success">Active</span>
+              <span *ngIf="user.status == 0" class="text-danger">InActive</span>
+            </strong>
+          </div>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>

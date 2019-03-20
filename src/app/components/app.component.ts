@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GlobalService } from '../app/global.service';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     const dateNow = new Date();
     const expiry = new Date(localStorage.getItem('expires_at') ? localStorage.getItem('expires_at') : sessionStorage.getItem('expires_at'));
 
-    if (!localStorage.getItem('token') || !sessionStorage.getItem('token') && ( expiry <= dateNow ) ) {
+    if ((!localStorage.getItem('token') || !sessionStorage.getItem('token')) && ( expiry <= dateNow ) ) {
       this.router.navigate(['/']);
     }
   }

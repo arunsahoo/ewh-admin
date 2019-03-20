@@ -22,4 +22,19 @@ describe('ResetPasswordComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should send email', () => {
+    const mockEvent = {
+      preventDefault: () => {},
+      target: {
+        querySelector: () => {
+          return {value: 'email@test.com'};
+        }
+      }
+    };
+
+    spyOn(mockEvent, 'preventDefault');
+    component.resetPassword(mockEvent);
+    expect(mockEvent.preventDefault).toHaveBeenCalled();
+  });
 });

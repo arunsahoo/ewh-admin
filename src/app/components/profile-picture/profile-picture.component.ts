@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLoginService } from '../user-login.service';
+import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
   selector: 'app-profile-picture',
