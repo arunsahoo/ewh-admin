@@ -17,6 +17,7 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
 import { ServicesComponent } from './components/services/services.component';
 import { UsersComponent } from './components/users/users.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     InvoicesComponent,
     ServicesComponent,
     UsersComponent,
-    SettingsComponent
+    SettingsComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,

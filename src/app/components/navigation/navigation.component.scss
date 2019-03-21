@@ -1,27 +1,88 @@
+#logo {
+    cursor: pointer;
+}
+
+#logo img {
+    max-width: 100%;
+}
+
+#logo span {
+    background: #eee;
+    border-radius: 2px;
+    padding: 4px;
+    width: 45px;
+    margin: 14px 10px 14px 35px;
+    display: inline-block;
+}
+
+#logo h4 {
+    color: #fff;
+    margin-top: 25px;
+    float: right;
+    width: calc(100% - 100px);
+}
+
+hr {
+    border-top: 1px solid #1d2531;
+    box-shadow: 0px 1px 1px #444;
+    margin-top: 0;
+    clear: both;
+}
+
 #menu {
     list-style: none;
     padding: 0;
 }
 
 #menu li {
-    padding: 5px;
-    cursor: pointer;
     color: #aaa;
     letter-spacing: 1px;
+    border-left: 2px solid #222c3c;
 }
 
 #menu li a {
+    padding: 8px;
     color: #fff;
     text-decoration: none;
+    width: 100%;
+    display: block;
+    border: 1px solid #222c3c;
 }
 
 #menu li i {
-    width: 20%;
-    padding-left: 10%;
+    width: 55px;
+    padding-left: 15px;
     text-align: center;
+    border-left: 2px solid #222c3c;
 }
 
-#menu li.active {
-    background-color: #222;
+#menu li.active, #menu li:hover {
+    background-color: #1d2531;
     border-left: 2px solid #0099ff;
+}
+
+@media screen and (max-width: 980px) {
+    ul#menu li a > span, #logo h4 {
+        display: none !important;
+    }
+
+    #logo span { 
+        margin: 14px;
+    }
+
+    ul#menu li a {
+        display: inline-flex;
+    }
+
+    ul#menu li i {
+        padding-left: 0;
+    }
+
+    #menu li i::before {
+        font-size: 18px;
+    }
+
+    ul#menu li {
+        text-align: center;
+    }
 }

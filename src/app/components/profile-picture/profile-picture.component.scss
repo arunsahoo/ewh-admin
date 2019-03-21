@@ -35,3 +35,9 @@
     color: #eee;
     letter-spacing: 1px;
 }
+
+@media screen and (max-width: 980px) {
+    .customerName {
+        display: none !important;
+    }
+}

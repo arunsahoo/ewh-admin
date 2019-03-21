@@ -18,4 +18,12 @@ export class UserLoginService {
     this.userId =  localStorage.getItem('userId') ? localStorage.getItem('userId') : sessionStorage.getItem('userId');
     return Axios.get('users/' + this.userId);
   }
+
+  edit(id) {
+    return Axios.put('users/' + id);
+  }
+
+  delete(id) {
+    return Axios.delete('users/' + id);
+  }
 }
