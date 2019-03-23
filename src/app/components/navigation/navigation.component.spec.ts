@@ -28,16 +28,16 @@ describe('NavigationComponent', () => {
       }
     };
 
-  spyOn(localStorage, 'removeItem')
-    .and.callFake(mockLocalStorage.removeItem);
+  spyOn(localStorage, 'clear')
+    .and.callFake(mockLocalStorage.clear);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('should remove item from localStorage on user logout', () => {
+  it('should remove item from localStorage on user logout', () => {
     component.logoutUser();
-    expect(localStorage.removeItem).toHaveBeenCalled();
+    expect(localStorage.clear).toHaveBeenCalled();
   });
 });

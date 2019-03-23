@@ -14,6 +14,14 @@ hr {
     height: 100%;
 }
 
+#container .row {
+    margin: 10px 20px;
+}
+
+.pull-none {
+    float: none !important;
+}
+
 #leftNav {
     background: #222c3c;
     width: 250px;
@@ -29,11 +37,11 @@ hr {
 }
 
 table {
-    width: 95%;
-    margin: 30px auto 0 auto;
+    margin: 10px auto 0 auto;
     border: 1px solid #ddd;
     border-radius: 4px; 
     box-shadow: 0 0 2px #aaa;
+    display: inline-table;
 }
 
 table thead {
