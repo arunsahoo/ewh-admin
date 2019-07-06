@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { of } from 'rxjs';
 
 import { ProfilePictureComponent } from './profile-picture.component';
-import { UserLoginService } from '../user-login.service';
+import { UserLoginService } from '../../services/user-login.service';
 
 describe('ProfilePictureComponent', () => {
   let component: ProfilePictureComponent;

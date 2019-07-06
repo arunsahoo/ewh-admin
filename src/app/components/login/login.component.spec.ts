@@ -1,16 +1,14 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import Axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 
 import { LoginComponent } from './login.component';
-import { UserLoginService } from '../user-login.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let userLoginService: any;
   let mockEvent = {
     preventDefault: () => {},
     target: {
@@ -27,29 +25,24 @@ describe('LoginComponent', () => {
     navigate: jasmine.createSpy('navigate')
   };
   const mockResponse = {
-    status: 'success',
-    api_key: 'asdfkjl123ijio238',
-    userId: '2'
+      access_token: 'asdfkjl123ijio238',
+      user_id: '2'
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterTestingModule],
-      providers: [UserLoginService, {provide: Router, useValue: mockRouter}],
+      imports: [RouterTestingModule],
+      providers: [{provide: Router, useValue: mockRouter}],
       declarations: [LoginComponent]
     })
     .compileComponents();
   }));
 
-  beforeEach(inject([UserLoginService], s => {
-    userLoginService = s;
-
+  beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
 
-  beforeEach(() => {
     let store = {};
     const mockLocalStorage = {
       getItem: (key: string): string => {
@@ -74,8 +67,6 @@ describe('LoginComponent', () => {
     .and.callFake(mockLocalStorage.removeItem);
   spyOn(localStorage, 'clear')
     .and.callFake(mockLocalStorage.clear);
-
-    spyOn(userLoginService, 'getUserLogin').and.returnValue(of(mockResponse));
   });
 
   it('should create', () => {
@@ -103,14 +94,16 @@ describe('LoginComponent', () => {
     expect(mockEvent.preventDefault).toHaveBeenCalled();
   });
 
-  xit('should route navigate to dashboard on login success', async(() => {
+  xit('should route navigate to dashboard on login success', (() => {
+    const data = { response: true };
+    const mockAxios = new MockAdapter(Axios);
+    mockAxios.onPost('login').reply(200, data);
+
     component.loginUser(mockEvent);
-    fixture.detectChanges();
-    expect(component.loginSession).toBe(mockResponse);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
   }));
 
-  xit('should setItem for localStorage when remember is checked', async(() => {
+  xit('should setItem for localStorage when remember is checked', (() => {
     mockEvent = {
       preventDefault: () => {},
       target: {
@@ -126,9 +119,11 @@ describe('LoginComponent', () => {
       }
     };
 
+    const mockAxios = new MockAdapter(Axios);
+    mockAxios.onPost('login').reply(200, mockResponse);
+
     component.loginUser(mockEvent);
-    fixture.detectChanges();
-    expect(localStorage.getItem('token')).toBe('asdfkjl123ijio238');
-    expect(localStorage.getItem('userId')).toBe('2');
+    expect(localStorage.getItem('token')).toBe(mockResponse.access_token);
+    expect(localStorage.getItem('userId')).toBe(mockResponse.user_id);
   }));
 });
