@@ -17,9 +17,6 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
-    
-    cache_key: &cache_key cg-front-end-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
-    dist_key: &dist_key cg-front-end-dist-{{ .Revision }}
 
     steps:
       - checkout
