@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^7.2.3",
     "@angular/platform-browser-dynamic": "^7.2.3",
     "@angular/router": "^7.2.3",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "core-js": "^2.6.3",
     "rxjs": "^6.4.0",
     "satellizer": "^0.15.5",
