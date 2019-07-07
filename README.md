@@ -6,7 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run swoole server `php artisan swoole:http start`
+## Run API server
+
+Clone project from ewhapi repo (https://github.com/arunsahoo/ewhapi.git). Run swoole server `php artisan swoole:http start` after configuring database under LAMP/MAMP/XAMP/WAMP server.
 
 ## Code scaffolding
 
