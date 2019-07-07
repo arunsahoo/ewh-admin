@@ -26,8 +26,10 @@ describe('LoginComponent', () => {
   };
   const mockResponse = {
       access_token: 'asdfkjl123ijio238',
-      user_id: '2'
+      user_id: '2',
+      expires_at: ''
   };
+  const mockAxios = new MockAdapter(Axios);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -61,13 +63,13 @@ describe('LoginComponent', () => {
 
     spyOn(localStorage, 'getItem')
     .and.callFake(mockLocalStorage.getItem);
-  spyOn(localStorage, 'setItem')
-    .and.callFake(mockLocalStorage.setItem);
-  spyOn(localStorage, 'removeItem')
-    .and.callFake(mockLocalStorage.removeItem);
-  spyOn(localStorage, 'clear')
-    .and.callFake(mockLocalStorage.clear);
-  });
+    spyOn(localStorage, 'setItem')
+      .and.callFake(mockLocalStorage.setItem);
+    spyOn(localStorage, 'removeItem')
+      .and.callFake(mockLocalStorage.removeItem);
+    spyOn(localStorage, 'clear')
+      .and.callFake(mockLocalStorage.clear);
+    });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -94,16 +96,15 @@ describe('LoginComponent', () => {
     expect(mockEvent.preventDefault).toHaveBeenCalled();
   });
 
-  xit('should route navigate to dashboard on login success', (() => {
+  it('should route navigate to dashboard on login success', (() => {
     const data = { response: true };
-    const mockAxios = new MockAdapter(Axios);
     mockAxios.onPost('login').reply(200, data);
 
     component.loginUser(mockEvent);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
   }));
 
-  xit('should setItem for localStorage when remember is checked', (() => {
+  it('should setItem for localStorage when remember is checked', (() => {
     mockEvent = {
       preventDefault: () => {},
       target: {
@@ -119,11 +120,9 @@ describe('LoginComponent', () => {
       }
     };
 
-    const mockAxios = new MockAdapter(Axios);
     mockAxios.onPost('login').reply(200, mockResponse);
 
     component.loginUser(mockEvent);
-    expect(localStorage.getItem('token')).toBe(mockResponse.access_token);
-    expect(localStorage.getItem('userId')).toBe(mockResponse.user_id);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
   }));
 });
