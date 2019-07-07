@@ -25,29 +25,29 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     const email = target.querySelector('#email').value;
     const password = target.querySelector('#password').value;
-    const rememberCheck = target.querySelector('#remember').checked;
+    const rememberStatus = target.querySelector('#remember').checked;
 
     const data = {
       'email': email,
       'password': password,
-      'remember_me': rememberCheck
+      'remember_me': rememberStatus
     };
 
     Axios.post('login', data)
     .then((Response) => {
-      const resData = Response.data;
-      const token = resData.access_token;
-      const userId = resData.user_id;
-      const expiry = resData.expires_at;
+      const responseData = Response.data;
+      const accessToken = responseData.access_token;
+      const userId = responseData.user_id;
+      const loginExpiryDuration = responseData.expires_at;
 
-      if (rememberCheck) {
-        localStorage.setItem('token', token);
+      if (rememberStatus) {
+        localStorage.setItem('token', accessToken);
         localStorage.setItem('userId', userId);
-        localStorage.setItem('expires_at', expiry);
+        localStorage.setItem('expires_at', loginExpiryDuration);
       } else {
-        sessionStorage.setItem('token', token);
+        sessionStorage.setItem('token', accessToken);
         sessionStorage.setItem('userId', userId);
-        sessionStorage.setItem('expires_at', expiry);
+        sessionStorage.setItem('expires_at', loginExpiryDuration);
       }
       this.router.navigate(['/dashboard']);
     })
