@@ -16,8 +16,11 @@ export class AppComponent implements OnInit {
     const dateNow = new Date();
     const expiry = new Date(localStorage.getItem('expires_at') ? localStorage.getItem('expires_at') : sessionStorage.getItem('expires_at'));
 
-    if ((!localStorage.getItem('token') || !sessionStorage.getItem('token')) && ( expiry <= dateNow ) ) {
-      this.router.navigate(['/']);
+    if ((!localStorage.getItem('token')
+        || !sessionStorage.getItem('token'))
+        && ( expiry <= dateNow )
+        && (window.location.pathname !== '/reset-password')) {
+        this.router.navigate(['/']);
     }
   }
 }
