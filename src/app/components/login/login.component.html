@@ -7,25 +7,25 @@
           <form class="form-horizontal" (submit)='loginUser($event)'>
             <div class="form-group">
               <div class="col-md-12">
-                <input id="email" type="email" class="form-control" name="email" placeholder="Your email id" required autofocus>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Your email id" required="required" autofocus="autofocus">
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-md-12">
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required="required">
               </div>
             </div>
 
             <div class="form-group">
-              <div class="col-md-6">
+              <div class="col-md-6 text-left">
                 <div class="checkbox">
                   <label>
                     <input type="checkbox" name="remember" id="remember"> Remember Me
                   </label>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 text-right">
                 <a class="btn btn-link" href="reset-password">
                   Forgot Your Password?
                 </a>
