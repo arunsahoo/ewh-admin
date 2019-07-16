@@ -10,6 +10,7 @@ import Axios from 'axios';
 export class LoginComponent implements OnInit {
   users: any;
   loginSession: any;
+  error: any;
 
   constructor ( private router: Router ) { }
 
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     })
     .catch((error) => {
-      console.log(error);
+      this.error = error;
     });
   }
 }
