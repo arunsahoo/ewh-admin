@@ -1,0 +1,43 @@
+#uploadPhoto {
+    position: relative;
+    cursor: pointer;
+}
+
+#uploadPhoto .text {
+    position: absolute;
+    left: 30%;
+    top: 100%;
+    font-weight: bold;
+    display: none;
+}
+
+#uploadPhoto:hover img.profilePic {
+    opacity: 0.3;
+}
+
+#profilePicUpload {
+    display: none;
+}
+
+#uploadPhoto:hover .text {
+    display: block;
+}
+
+.profilePic {
+    border-radius: 100%;
+    margin: 5vh 20% 1vh 20%;
+    width: 60%;
+}
+
+.customerName {
+    text-align: center;
+    display: block;
+    color: #eee;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 980px) {
+    .customerName {
+        display: none !important;
+    }
+}

@@ -1,21 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { UserLoginService } from './user-login.service';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { GlobalService } from './services/global.service';
+import { UserLoginService } from './services/user-login.service';
+import { LoginComponent } from './components/login/login.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { InvoicesComponent } from './components/invoices/invoices.component';
+import { ServicesComponent } from './components/services/services.component';
+import { UsersComponent } from './components/users/users.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ResetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavigationComponent,
+    ProfilePictureComponent,
+    CustomerComponent,
+    InvoicesComponent,
+    ServicesComponent,
+    UsersComponent,
+    SettingsComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +54,32 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'customer',
+        component: CustomerComponent
+      },
+      {
+        path: 'invoices',
+        component: InvoicesComponent
+      },
+      {
+        path: 'services',
+        component: ServicesComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
       }
     ])
   ],
-  providers: [UserLoginService],
-  bootstrap: [AppComponent]
+  providers: [UserLoginService, GlobalService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AppModule { }

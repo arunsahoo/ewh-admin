@@ -1,0 +1,70 @@
+hr {
+    border-top: 2px solid #222;
+    box-shadow: 1px 1px 1px #444;
+}
+
+#dashboard {
+    margin: 0 auto 0 auto;
+    box-shadow: 0 2px 5px #333;
+    padding: 0;
+}
+
+#leftNav, #container {
+    min-height: 100vh;
+    height: 100%;
+}
+
+#container .row {
+    margin: 10px 20px;
+}
+
+.pull-none {
+    float: none !important;
+}
+
+#leftNav {
+    background: #222c3c;
+    width: 250px;
+    float: left;
+    transition: width 1s;
+}
+
+#container {
+    width: calc(100% - 250px);
+    background: #eee;
+    float: right;
+    transition: width 1s;
+}
+
+table {
+    margin: 10px auto 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    box-shadow: 0 0 2px #aaa;
+    display: inline-table;
+}
+
+table thead {
+    background-color: #222c3c;
+    color: #fff;
+}
+
+table th {
+    font-weight: 400;
+}
+
+table td {
+    border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 980px) {
+    #leftNav {
+        width: 70px;
+        transition: width 1s;
+    }
+
+    #container {
+        width: calc(100% - 70px);
+        transition: width 1s;
+    }
+}
