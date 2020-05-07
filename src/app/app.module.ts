@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { GlobalService } from './services/global.service';
 import { UserLoginService } from './services/user-login.service';
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +40,7 @@ import { HeaderNavComponent } from './components/header-nav/header-nav.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
     RouterModule.forRoot([
       {
         path: '',
