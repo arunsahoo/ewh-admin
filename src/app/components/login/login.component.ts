@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Axios from 'axios';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginSession: any;
   error: any;
 
-  constructor ( private router: Router ) { }
+  constructor ( private router: Router, private SpinnerService: NgxSpinnerService ) { }
 
   ngOnInit() {
     if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(event) {
     event.preventDefault();
+    this.SpinnerService.show();
 
     const target = event.target;
     const email = target.querySelector('#email').value;
@@ -50,10 +53,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('userId', userId);
         sessionStorage.setItem('expires_at', loginExpiryDuration);
       }
+      this.SpinnerService.hide();
       this.router.navigate(['/dashboard']);
     })
     .catch((error) => {
       this.error = error;
+      this.SpinnerService.hide();
     });
   }
 }

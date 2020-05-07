@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
@@ -10,15 +11,18 @@ export class UsersComponent implements OnInit {
   users: any = [];
   userData: any = [];
 
-  constructor(private userService: UserLoginService) { }
+  constructor(private userService: UserLoginService, private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.SpinnerService.show();
     this.userService.getAllUsers()
     .then((Response) => {
       this.users = Response.data.data;
+      this.SpinnerService.hide();
     })
     .catch((error) => {
       console.log(error);
+      this.SpinnerService.hide();
     });
 
     this.userService.getUser()
