@@ -10,14 +10,15 @@ import { UserLoginService } from '../../services/user-login.service';
 export class UsersComponent implements OnInit {
   users: any = [];
   userData: any = [];
+  userGroups: any = [];
 
   constructor(private userService: UserLoginService, private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
     this.SpinnerService.show();
     this.userService.getAllUsers()
-    .then((Response) => {
-      this.users = Response.data.data;
+    .then((Res) => {
+      this.users = Res.data.data;
       this.SpinnerService.hide();
     })
     .catch((error) => {
@@ -26,22 +27,29 @@ export class UsersComponent implements OnInit {
     });
 
     this.userService.getUser()
-    .then((response) => {
-      this.userData = response.data.data;
+    .then((Res) => {
+      this.userData = Res.data.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    this.userService.getUserGroups()
+    .then((Res) => {
+      this.userGroups = Res.data.data;
     })
     .catch((error) => {
       console.log(error);
     });
   }
 
-  updateStatus(id) {
-
+  updateStatus(id, status) {
+    alert(status);
   }
 
   editUser(id) {
     this.userService.edit(id)
-    .then((response) => {
-      console.log(response);
+    .then((Res) => {
+      console.log(Res);
     })
     .catch((error) => {
       console.log(error);
@@ -49,12 +57,16 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.userService.delete(id)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    const confirmDelete = confirm('Do you want to remove this user account premanently!');
+
+    if (confirmDelete === true) {
+      this.userService.delete(id)
+      .then((Res) => {
+        console.log(Res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
   }
 }

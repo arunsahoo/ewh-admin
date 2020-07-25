@@ -6,15 +6,16 @@
   <div id="container">
       <app-header-nav></app-header-nav>
     <div class="row">
-      Filter: <input type="text" class="col-sm-10 pull-none"/><button *ngIf="userData.utype == 2" class="btn btn-primary pull-right" title="Add New User."><i class="fa fa-plus"></i></button>
+      Filter: <input type="text" class="col-sm-4 pull-none"/><button *ngIf="userData.utype == 0" class="btn btn-success pull-right" title="Add New User."><i class="fa fa-plus"></i> Add</button>
     <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col" class="text-center">Sl No.</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
+          <th scope="col">Role</th>
           <th scope="col" class="text-center">Status</th>
-          <th *ngIf="userData.utype == 2" scope="col" class="text-center">Trash</th>
+          <th *ngIf="userData.utype == 0" scope="col" class="text-center">Trash</th>
         </tr>
       </thead>
       <tbody>
@@ -22,17 +23,23 @@
         <td class="text-center col-sm-1">{{i+1}}</td>
         <td class="text-capitalize">{{user.name}}</td>
         <td>{{user.email}}</td>
-        <td class="text-center col-sm-1">
-          <div *ngIf="userData.utype == 2">
-              <input *ngIf="user.status == 1" type="checkbox" checked />
-              <input *ngIf="user.status == 0" type="checkbox" />
+        <td>
+          {{ userGroups[user.utype].group }}
+        </td>
+        <td class="text-center col-sm-1" >
+          <div *ngIf="userData.utype == 0">
+            <ui-switch *ngIf="user.status == 1 && user.id == userData.id" checked disabled></ui-switch>
+            <ui-switch *ngIf="user.status == 1 && user.id != userData.id" checked (click)="updateStatus(user.id, user.status)"></ui-switch>
+            <ui-switch *ngIf="user.status == 0" (click)="updateStatus(user.id, user.status)"></ui-switch>
           </div>
-          <div *ngIf="userData.utype != 2">
+          <div *ngIf="userData.utype != 0">
               <span *ngIf="user.status == 1" class="text-success">Active</span>
               <span *ngIf="user.status == 0" class="text-danger">InActive</span>
           </div>
           </td>
-          <td *ngIf="userData.utype == 2" class="text-center col-sm-1"> <i class="fa fa-trash text-danger" (click)="deleteUser(user.id)"></i> </td>
+          <td *ngIf="userData.utype == 0" class="text-center col-sm-1"> 
+            <i class="fa fa-trash text-danger delete" (click)="deleteUser(user.id)"></i> 
+          </td>
       </tr>
     </tbody>
     </table>
