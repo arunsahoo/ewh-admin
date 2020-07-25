@@ -26,4 +26,8 @@ export class UserLoginService {
   delete(id) {
     return Axios.delete('users/' + id);
   }
+
+  getUserGroups() {
+    return Axios.get('user_groups');
+  }
 }
