@@ -1,9 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@font-face {
+    font-family: 'Roboto';
+    src: url('../src/assets/fonts/Roboto-Regular.ttf')  format('truetype');
+  }
 /* You can add global styles to this file, and also import other style files */
 html, body {
     margin: 0;
-    font-family: 'Source Sans Pro', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     letter-spacing: 0.05rem;
+    color: #333 !important;
 }
 
 /*!
@@ -151,7 +155,9 @@ table {
 td,th {
  padding:0
 }
-
+.delete {
+  cursor: pointer;
+}
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
  *,:after,:before {

@@ -71,7 +71,7 @@ describe('LoginComponent', () => {
       .and.callFake(mockLocalStorage.clear);
     });
 
-  it('should create', () => {
+  it('should create login component', () => {
     expect(component).toBeTruthy();
   });
 
