@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "ewh-admin"
+  "defaultProject": "ewh-admin",
+  "cli": {
+    "analytics": false
+  }
 }
