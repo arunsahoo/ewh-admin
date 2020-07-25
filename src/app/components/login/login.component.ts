@@ -56,8 +56,9 @@ export class LoginComponent implements OnInit {
       this.SpinnerService.hide();
       this.router.navigate(['/dashboard']);
     })
-    .catch((error) => {
-      this.error = error;
+    .catch(error => {
+      this.error = error.response;
+      console.log(this.error);
       this.SpinnerService.hide();
     });
   }
