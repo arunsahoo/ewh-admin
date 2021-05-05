@@ -22,7 +22,6 @@
     "@angular/router": "^9.1.4",
     "axios": "^0.21.1",
     "core-js": "^2.6.3",
-    "ngx-dialogs": "^1.0.2",
     "ngx-spinner": "^9.0.2",
     "ngx-toggle-switch": "^2.0.5",
     "rxjs": "^6.4.0",
@@ -31,7 +30,6 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.4",
     "@angular/cli": "^11.2.11",
     "@angular/compiler-cli": "^9.1.4",
     "@angular/language-service": "^9.1.4",
@@ -39,7 +37,6 @@
     "@types/jasminewd2": "^2.0.5",
     "@types/node": "^12.11.1",
     "axios-mock-adapter": "^1.16.0",
-    "codelyzer": "^5.1.2",
     "gulp": "^4.0.0",
     "gulp-concat-css": "^3.1.0",
     "gulp-cssmin": "^0.2.0",
