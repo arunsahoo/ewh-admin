@@ -22,7 +22,6 @@
     "@angular/router": "^9.1.4",
     "axios": "^0.21.1",
     "core-js": "^2.6.3",
-    "ngx-toggle-switch": "^2.0.5",
     "rxjs": "^6.4.0",
     "satellizer": "^0.15.5",
     "tslib": "^1.10.0",
