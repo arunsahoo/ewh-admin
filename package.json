@@ -25,7 +25,7 @@
     "axios": "^0.21.1",
     "core-js": "^2.6.3",
     "ngx-spinner": "^11.0.1",
-    "ngx-toggle-switch": "^2.0.5",
+    "ngx-ui-switch": "^10.0.2",
     "rxjs": "^6.4.0",
     "satellizer": "^0.15.5",
     "tslib": "^1.10.0",
