@@ -7,7 +7,6 @@ import { AppComponent } from './components/app.component';
 import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UiSwitchModule } from 'ngx-toggle-switch';
-import { NgxDialogsModule } from 'ngx-dialogs';
 
 import { GlobalService } from './services/global.service';
 import { UserLoginService } from './services/user-login.service';
@@ -44,7 +43,6 @@ import { HeaderNavComponent } from './components/header-nav/header-nav.component
     HttpClientModule,
     NgxSpinnerModule,
     UiSwitchModule,
-    NgxDialogsModule,
     RouterModule.forRoot([
       {
         path: '',
