@@ -16,6 +16,6 @@ export class GlobalService {
       Axios.defaults.baseURL = 'http://127.0.0.1:8000/';
     }
 
-    Axios.defaults.headers.common['X-Authorization'] = 'kT3ywIw376myEolJwPBzNs3fIC7ONjfxeEosXchYXO6L1JQYglEBJrk8L0u25fgn';
+    Axios.defaults.headers.common['X-Authorization'] = 'KTFaM268GiacEF0Ocl0KfsZDtbHDPpE5rFAGuFKIB9GgiJrb8px7j09oLtFUedPc';
   }
 }
