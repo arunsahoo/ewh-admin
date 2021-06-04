@@ -5,8 +5,14 @@
   </div>
   <div id="container">
       <app-header-nav></app-header-nav>
-    <div class="row">
-      Filter: <input type="text" class="col-sm-4 pull-none"/><button *ngIf="userData.utype == 0" class="btn btn-success pull-right" title="Add New User."><i class="fa fa-plus"></i> Add</button>
+    <div class="row nopadding">
+      <div class="col-sm-2">
+        <input type="text" class="form-control" placeholder="Type Here to Search by Name..."/>
+      </div>
+      <div class="col-sm-8"></div>
+      <div class="col-sm-2">
+        <button *ngIf="userData.utype == 1" class="btn btn-success pull-right" title="Add New User."><i class="fa fa-plus"></i> Add</button>
+      </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -15,7 +21,7 @@
           <th scope="col">Email</th>
           <th scope="col">Role</th>
           <th scope="col" class="text-center">Status</th>
-          <th *ngIf="userData.utype == 0" scope="col" class="text-center">Trash</th>
+          <th *ngIf="userData.utype == 1" scope="col" class="text-center">Trash</th>
         </tr>
       </thead>
       <tbody>
@@ -24,21 +30,24 @@
         <td class="text-capitalize">{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>
-          {{ userGroups[user.utype].group }}
+          <ng-container *ngIf="userGroups[user.utype-1]">
+            {{ userGroups[user.utype-1].group }}
+          </ng-container>
         </td>
-        <td class="text-center col-sm-1" >
-          <div *ngIf="userData.utype == 0">
+        <td class="text-center col-sm-1 custom-switches" >
+          <div *ngIf="userData.utype == 1">
             <ui-switch *ngIf="user.status == 1 && user.id == userData.id" checked disabled></ui-switch>
             <ui-switch *ngIf="user.status == 1 && user.id != userData.id" checked (click)="updateStatus(user.id, user.status)"></ui-switch>
-            <ui-switch *ngIf="user.status == 0" (click)="updateStatus(user.id, user.status)"></ui-switch>
+            <ui-switch *ngIf="user.status == 0" (click)="updateStatus(user.id, user.status)" ></ui-switch>
           </div>
-          <div *ngIf="userData.utype != 0">
+          <div *ngIf="userData.utype != 1">
               <span *ngIf="user.status == 1" class="text-success">Active</span>
               <span *ngIf="user.status == 0" class="text-danger">InActive</span>
           </div>
           </td>
-          <td *ngIf="userData.utype == 0" class="text-center col-sm-1"> 
-            <i class="fa fa-trash text-danger delete" (click)="deleteUser(user.id)"></i> 
+          <td *ngIf="userData.utype == 1" class="text-center col-sm-1"> 
+            <i class="fa fa-trash text-danger delete" *ngIf="user.id != userData.id" (click)="deleteUser(user.id)"></i> 
+            <i class="fa fa-trash text-muted delete" *ngIf="user.id == userData.id" disabled></i> 
           </td>
       </tr>
     </tbody>

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -6,8 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { UiSwitchModule } from 'ngx-toggle-switch';
-import { NgxDialogsModule } from 'ngx-dialogs';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 import { GlobalService } from './services/global.service';
 import { UserLoginService } from './services/user-login.service';
@@ -40,11 +40,11 @@ import { HeaderNavComponent } from './components/header-nav/header-nav.component
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
     UiSwitchModule,
-    NgxDialogsModule,
     RouterModule.forRoot([
       {
         path: '',

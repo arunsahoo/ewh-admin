@@ -31,13 +31,18 @@ export class LoginComponent implements OnInit {
     const password = target.querySelector('#password').value;
     const rememberStatus = target.querySelector('#remember').checked;
 
-    const data = {
+    const data = JSON.stringify({
       'email': email,
       'password': password,
       'remember_me': rememberStatus
-    };
+    });
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
 
-    Axios.post('login', data)
+    Axios.post('login', data, options)
     .then((Response) => {
       const responseData = Response.data;
       const accessToken = responseData.access_token;

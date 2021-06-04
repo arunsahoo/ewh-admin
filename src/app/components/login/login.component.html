@@ -5,22 +5,21 @@
         <div class="panel-body text-center">
           <img src="../assets/images/logo.png" alt="logo" class="splashLogo"> 
           <form class="form-horizontal" (submit)='loginUser($event)'>
-            <div *ngIf="this.error.status == 422" class="alert alert-warning">
-              <strong>Warning!</strong><br>
-              You have entered invalid login details.
-            </div>
-            <div *ngIf="this.error.status == 401" class="alert alert-danger">
-              <strong>Unauthorized!</strong><br>
-              This email id/ password is not registered with us.<br>
-              Or your account may be in-active to login.
-            </div>
+            <ng-container *ngIf="this.error">
+              <div *ngIf="this.error.status == 422" class="alert alert-warning">
+                <strong>Warning!</strong><br>
+                You have entered invalid login details.
+              </div>
+              <div *ngIf="this.error.status == 401" class="alert alert-danger">
+                <strong>Unauthorized!</strong><br>
+                This email id/ password is not registered with us.<br>
+                Or your account may be in-active to login.
+              </div>
+            </ng-container>
             <div class="form-group">
               <div class="col-md-12">
                 <i class="far fa-envelope icon"></i>
                 <input id="email" type="email" class="form-control text-center" name="email" placeholder="Enter your email address" required="required" autofocus="autofocus" />
-              <span *ngIf="this.error.data.errors.email" class="text-danger text-left">
-                {{ this.error.data.errors.email[0] }}
-              </span>
               </div>
             </div>
 
@@ -33,9 +32,6 @@
                   <i class="fa fa-lock icon"></i>
                 <input id="password" type="password" class="form-control text-center"
                 name="password" placeholder="Password" required />
-                <span *ngIf="this.error.data.errors.password" class="text-danger text-left">
-                  {{ this.error.data.errors.password[0] }}
-                </span>
               </div>
             </div>
 

@@ -16,6 +16,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.SpinnerService.show();
+
+    // Get all uesrs data
     this.userService.getAllUsers()
     .then((Res) => {
       this.users = Res.data.data;
@@ -26,6 +28,7 @@ export class UsersComponent implements OnInit {
       this.SpinnerService.hide();
     });
 
+    // Get current user data
     this.userService.getUser()
     .then((Res) => {
       this.userData = Res.data.data;
@@ -33,6 +36,8 @@ export class UsersComponent implements OnInit {
     .catch((error) => {
       console.log(error);
     });
+
+    // Get all user groups
     this.userService.getUserGroups()
     .then((Res) => {
       this.userGroups = Res.data.data;
