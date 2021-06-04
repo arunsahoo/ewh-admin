@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^11.2.14",
     "@angular/router": "^11.2.14",
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
     "core-js": "^2.6.3",
     "ngx-spinner": "^11.0.1",
     "ngx-ui-switch": "^10.0.2",
